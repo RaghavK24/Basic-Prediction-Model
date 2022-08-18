@@ -25,9 +25,9 @@ df['label'] = df[forecast_col].shift(-forecast_out)
 
 X = np.array(df.drop(columns=['label']))
 X = preprocessing.scale(X)
-X_lately = X[-forecast_out:] #Let forecast_out be 20, so if total elements are 100, -forecast_out would be 80 and hence this tells
-                             #us to start from 80 to the end
-X = X[:-forecast_out]  #This will be 0 to 80(if assumptions from previous comments are taken)
+X_lately = X[-forecast_out:] 
+                             
+X = X[:-forecast_out]  
 
 df.dropna(inplace=True)
 
